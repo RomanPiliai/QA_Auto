@@ -1,5 +1,6 @@
 import pytest
 from modules.common.database import Database
+from sqlite3 import IntegrityError, OperationalError
 
 
 @pytest.mark.database
@@ -12,7 +13,7 @@ def test_check_all_users():
     db = Database()
     users = db.get_all_users()
     
-    print(users)
+    #print(users)
     
 @pytest.mark.database
 def test_check_user_sergii():
@@ -53,7 +54,7 @@ def test_product_delete():
 def test_detailed_orders():
     db = Database()
     orders = db.get_detailed_orders()
-    print("Замовлення", orders)
+    #print("Замовлення", orders)
     #Check quantity of orders equal to 1
     assert len(orders) == 1
     
@@ -62,3 +63,11 @@ def test_detailed_orders():
     assert orders[0][1] == 'Sergii'
     assert orders[0][2] == 'солодка вода'
     assert orders[0][3] == 'з цукром'
+    
+@pytest.mark.database
+def test_wrong_type_in_users():
+    db = Database()
+    with pytest.raises(OperationalError) as OpError:
+        db.insert_user_wrong_type(3, 'Roman', 'Darvina 15', 'Rivne', 33023, 'Ukraine')
+    assert "OperationalError" in str(OpError.type)
+    print('Хибний тип данних, опис помилки: ', OpError.value)

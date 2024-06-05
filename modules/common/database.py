@@ -13,7 +13,7 @@ class Database():
         print(f"Connected successfully. SQLite Database Version is: {record}")
         
     def get_all_users(self):
-        query = "SELECT name, address, city FROM customers"
+        query = "SELECT name, address, city, postalCode, country FROM customers"
         self.cursor.execute(query)
         record = self.cursor.fetchall()
         return record
@@ -56,4 +56,8 @@ class Database():
         record = self.cursor.fetchall()
         return record
     
-    
+    def insert_user_wrong_type(self, customer_id, name, address, city, postalCode, country):
+        query = f"INSERT OR REPLACE INTO customers (id, name, address, city, postalCode, country) \
+            VALUES ({customer_id}, {name}, '{address}', '{city}', {postalCode}, '{country}')"
+        self.cursor.execute(query)
+        self.connection.commit()    
