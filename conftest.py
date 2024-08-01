@@ -6,9 +6,11 @@ class User():
         self.name = None
         self.second_name = None
         
+        
     def create(self):
         self.name = 'Roman'
         self.second_name = 'Piliai'
+        
         
     def remove(self):
         self.name = ''
@@ -23,6 +25,7 @@ def user():
     yield user
     
     user.remove()      
+    
     
 @pytest.fixture
 def github_api():
