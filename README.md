@@ -7,17 +7,17 @@ Technologies used:
 - sqlite3
 - selenium
 ## Project structure
- <br/>+---config
+  +---config
  <br/>+---modules
  <br/>|   +---api
- |   |   \---clients
- |   +---common
- |   \---ui
- |       \---page_objects
- \---tests
-     +---api
-     +---database
-     \---ui
+ <br/>|   |   \---clients
+ <br/>|   +---common
+ <br/>|   \---ui
+ <br/>|       \---page_objects
+ <br/>\---tests
+ <br/>    +---api
+ <br/>    +---database
+ <br/>    \---ui
 
 ## Running tests
 All tests are divided by markers found in the pytest.ini file.
