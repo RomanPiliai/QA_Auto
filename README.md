@@ -8,8 +8,8 @@ Technologies used:
 - selenium
 ## Project structure
  <br/>+---config
- +---modules
- |   +---api
+ <br/>+---modules
+ <br/>|   +---api
  |   |   \---clients
  |   +---common
  |   \---ui
