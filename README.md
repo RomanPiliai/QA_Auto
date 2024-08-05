@@ -7,7 +7,7 @@ Technologies used:
 - sqlite3
 - selenium
 ## Project structure
- <br>+---config
+ <br/>+---config
  +---modules
  |   +---api
  |   |   \---clients
