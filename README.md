@@ -31,5 +31,5 @@ List of markers:
    
 To run a test with specific marker use the command
 ```bash
-pytest -m api
+pytest -m [marker name]
 ```
